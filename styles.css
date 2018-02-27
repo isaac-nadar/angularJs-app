@@ -1,0 +1,38 @@
+.full-height {
+    height: auto;
+}
+
+body {
+    background-color: #F7F9FC;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    background-color: #FFFFFF;
+    width: 100%;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.lhs {
+    background-color: #F7F9FC;
+    width: 40%;
+}
+
+.rhs {
+    background-color: #F3F4F6;
+    width: 60%;
+}
+
+@media screen and (max-width: 601px) {
+   .rhs{
+    width: 100%;
+    float:left;
+   }
+
+   .lhs {
+    width: 100%;
+    float: left;
+   }
+}

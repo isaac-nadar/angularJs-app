@@ -1,0 +1,18 @@
+{
+  "name": "AngularJs-App",
+  "version": "0.0.0",
+  "homepage": "https://github.com/isaac-nadar",
+  "authors": [
+    "Isaac Nadar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
