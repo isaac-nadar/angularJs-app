@@ -12,16 +12,46 @@
 <body ng-app="app" ng-controller="AppCtrl">
 
 	<header class="w3-container w3-indigo">
-		<h4>Rates Summary</h4>
+		<h4 class="big-responsive main-head">Rates Summary</h4>
 	</header>
-	<div class="full-height">
+	<div class="full-height big-responsive">
 		<div class="w3-row">
+
 			<div class="w3-col w3-container lhs">
-				<h2>w3-half</h2>
+				<div class="w3-container w3-margin-top rate-heading">
+					<div class="row">
+						<div class="w3-half rates">
+							BUYING RATES
+						</div>
+						<div class="w3-half">
+								<button class="w3-button w3-white w3-border w3-border-amber custom-btn">COPY ALL LEGS</button>
+						</div>
+					</div>
+					<!-- <div ng-repeat="x in myWelcome">
+						{{ x.rate_card_meta.leg_name }}
+					</div> -->
+				</div>
 			</div>
+
 			<div class="w3-col w3-container rhs">
-				<h2>w3-half</h2>
+					<div class="w3-container w3-margin-top rate-heading">
+							<div class="row">
+								<div class="w3-third rates">
+									YOUR SELLING RATES
+								</div>
+								<div class="w3-third">
+										<button class="w3-button w3-white w3-border w3-border-amber custom-btn">CREATE NEW LEG</button>
+								</div>
+								<div class="w3-third">
+										<button class="w3-button w3-white w3-border w3-border-amber custom-btn">HIDE CHARGE DETAILS</button>
+								</div>
+							</div>
+							<!-- <div ng-repeat="x in myWelcome">
+								{{ x.rate_card_meta.leg_name }}
+							</div> -->
+						</div>
 			</div>
+
 		</div>
 	</div>
 	<!-- <div class="w3-container">
