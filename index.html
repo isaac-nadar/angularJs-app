@@ -6,8 +6,8 @@
 </head>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="styles.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="styles/styles.css">
+<script src="scripts/angular.min.js"></script>
 
 <body ng-app="app" ng-controller="AppCtrl">
 
@@ -21,35 +21,51 @@
 				<div class="w3-container w3-margin-top rate-heading">
 					<div class="row">
 						<div class="w3-half rates">
-							BUYING RATES
+							{{ 'buying rates' | uppercase}}
 						</div>
 						<div class="w3-half">
-								<button class="w3-button w3-white w3-border w3-border-amber custom-btn">COPY ALL LEGS</button>
+							<button class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'copy all legs' | uppercase}}</button>
 						</div>
 					</div>
-					<!-- <div ng-repeat="x in myWelcome">
-						{{ x.rate_card_meta.leg_name }}
-					</div> -->
+					<div class="w3-container" ng-repeat="x in myWelcome">
+						<div class="row align-with-table">
+							<div class="w3-half">{{ x.rate_card_meta.leg_name | uppercase }}</div>
+							<div class="w3-half">TOTAL: {{x.rate_card_obj.card_meta.currency}} {{ x.rate_card_obj.card_meta.total_cost | number:0}}</div>
+						</div>
+						<div class="w3-container table-scroll">
+							<table class="w3-table w3-white">
+								<tr class="box-shadow">
+									<th>Charges</th>
+									<th>Final Amount</th>
+								</tr>
+								<tr ng-repeat="y in x.rate_card_obj.card_charges">
+									<td>{{y.charge_name}}</td>
+									<td>{{x.rate_card_obj.card_meta.currency}} {{y.total}}</td>
+								</tr>
+							</table>
+						</div>
+
+					</div>
 				</div>
 			</div>
 
 			<div class="w3-col w3-container rhs">
-					<div class="w3-container w3-margin-top rate-heading">
-							<div class="row">
-								<div class="w3-third rates">
-									YOUR SELLING RATES
-								</div>
-								<div class="w3-third">
-										<button class="w3-button w3-white w3-border w3-border-amber custom-btn">CREATE NEW LEG</button>
-								</div>
-								<div class="w3-third">
-										<button class="w3-button w3-white w3-border w3-border-amber custom-btn">HIDE CHARGE DETAILS</button>
-								</div>
-							</div>
-							<!-- <div ng-repeat="x in myWelcome">
+				<div class="w3-container w3-margin-top rate-heading">
+					<div class="row">
+						<div class="w3-third rates">
+							{{ 'your selling rates' | uppercase}}
+						</div>
+						<div class="w3-third">
+							<button class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'create new leg' | uppercase}}</button>
+						</div>
+						<div class="w3-third">
+							<button class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'hide charge details' | uppercase}}</button>
+						</div>
+					</div>
+					<!-- <div ng-repeat="x in myWelcome">
 								{{ x.rate_card_meta.leg_name }}
 							</div> -->
-						</div>
+				</div>
 			</div>
 
 		</div>
@@ -63,7 +79,7 @@
 		<h5>Footer</h5>
 		<p>Footer information goes here</p>
 	</div>
-	<script src="app.js"></script>
+	<script src="scripts/app.js"></script>
 
 </body>
 
