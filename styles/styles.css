@@ -8,6 +8,45 @@ body {
     font-size: 13px;
 }
 
+.table-name{
+    font-weight: bold;
+}
+
+.ok-btn {
+    color: white !important;
+    border-color: #ffc107;
+    margin-top: -3px;
+    margin-left: -4px;
+}
+
+.simple-btn {
+    border: none;
+    background: #F7F9FC;
+    color: blue;
+}
+
+.simple-btn1 {
+    background: #eef0f5;
+}
+
+/* .ok-btn:hover {
+    color: #ffc107 !important;
+    background-color: white !important;
+    border-color: #ffc107 !important;
+} */
+
+.w31-input {
+    padding: 8px;
+    display: inline-block;
+    width: 100px;
+    height: 32px;
+}
+
+.right-inputs {
+    float: right;
+    margin-top:10px;
+}
+
 .big-responsive {
     max-width: 1366px;
     margin: auto;
@@ -35,6 +74,7 @@ body {
 .table-scroll{
     height: 250px;
     overflow-y: scroll;
+    margin-top:10px;
 }
 
 .custom-btn:hover {
@@ -74,6 +114,17 @@ body {
 
 .rates {
     margin-top: 10px;
+}
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 @media screen and (max-width: 601px) {

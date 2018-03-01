@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
 <head>
 	<title>Simple AngularJS App</title>
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="styles/styles.css">
 <script src="scripts/angular.min.js"></script>
 
-<body ng-app="app" ng-controller="AppCtrl">
+<body ng-controller="AppCtrl">
 
 	<header class="w3-container w3-indigo">
 		<h4 class="big-responsive main-head">Rates Summary</h4>
@@ -24,11 +24,11 @@
 							{{ 'buying rates' | uppercase}}
 						</div>
 						<div class="w3-half">
-							<button class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'copy all legs' | uppercase}}</button>
+							<button ng-click="copyAll()" class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'copy all legs' | uppercase}}</button>
 						</div>
 					</div>
-					<div class="w3-container" ng-repeat="x in myWelcome">
-						<div class="row align-with-table">
+					<div class="w3-container" ng-repeat="x in legData">
+						<div class="row align-with-table table-name">
 							<div class="w3-half">{{ x.rate_card_meta.leg_name | uppercase }}</div>
 							<div class="w3-half">TOTAL: {{x.rate_card_obj.card_meta.currency}} {{ x.rate_card_obj.card_meta.total_cost | number:0}}</div>
 						</div>
@@ -44,7 +44,13 @@
 								</tr>
 							</table>
 						</div>
-
+						<div class="w3-container right-inputs">
+							<div><button ng-click="addItem(x)" class="simple-btn">COPY</button> OR
+								<input class="w31-input w3-border" ng-model="x.margin" placeholder="Enter Margin" type="number" [name="string" ] [min="1" ] [max="99" ] [ng-minlength="2"
+								    ] [ng-maxlength="2" ]>
+								<button ng-click="addItemMargin(x)" class="w3-button w3-amber ok-btn">OK</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -62,24 +68,47 @@
 							<button class="w3-button w3-white w3-border w3-border-amber custom-btn">{{ 'hide charge details' | uppercase}}</button>
 						</div>
 					</div>
-					<!-- <div ng-repeat="x in myWelcome">
-								{{ x.rate_card_meta.leg_name }}
-							</div> -->
+					<div class="w3-container" ng-repeat="x in rhsData track by x.rate_card_meta.global_leg_id">
+						<div class="row align-with-table table-name">
+							<div class="w3-half">{{ x.rate_card_meta.leg_name | uppercase }}</div>
+							<div class="w3-half">TOTAL: {{x.rate_card_obj.card_meta.currency}} {{ x.rate_card_obj.card_meta.total_cost | number:0}}</div>
+						</div>
+						<div class="w3-container table-scroll">
+							<table class="w3-table w3-white">
+								<tr class="box-shadow">
+									<th>Charges</th>
+									<th>Basis</th>
+									<th>Amount</th>
+									<th>Final Amount</th>
+								</tr>
+								<tr ng-repeat="y in x.rate_card_obj.card_charges">
+									<td>{{y.charge_name}}</td>
+									<td>{{y.basis}}</td>
+									<td>{{y.charge_currency}}{{y.amount}}</td>
+									<td>{{x.rate_card_obj.card_meta.currency}} {{y.total}}</td>
+								</tr>
+							</table>
+						</div>
+						<div class="w3-container right-inputs">
+							<div>
+								<button ng-click="remove(x)" class="simple-btn simple-btn1">REMOVE LEG</button>
+								<button class="simple-btn simple-btn1">ADD ANOTHER LEG</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-	<!-- <div class="w3-container">
 
-		<h3>{{dataBindingTest}}</h3>
-
-	</div> -->
 	<div class="w3-container footer">
 		<h5>Footer</h5>
 		<p>Footer information goes here</p>
 	</div>
 	<script src="scripts/app.js"></script>
+	<!-- <script src="app/controllers/controllers.js"></script> -->
+	<script src="scripts/dataService.js"></script>
 
 </body>
 
